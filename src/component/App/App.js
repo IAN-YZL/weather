@@ -1,12 +1,14 @@
 import React from 'react';
-import Test  from '../Banner';
+import Banner  from '../Banner';
+import Details from '../Details';
 import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-        <Test temp={12} >Cloudy</Test>
+        <Banner temp={12} >Cloudy</Banner>
+        <Details />
 
     </div>
   );
