@@ -1,8 +1,10 @@
 import React from 'react';
 import FutureSet from './FutureSet';
 
+import style from './Future.module.css';
+
 const Details = () => (
-    <div>
+    <div className={style.future}>
         <FutureSet>Mon</FutureSet>
         <FutureSet>TUE</FutureSet>
         <FutureSet>WED</FutureSet>
