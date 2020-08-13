@@ -1,11 +1,13 @@
 import React from 'react';
+import style from './Banner.module.css';
+
 import WeatherInfo from './WeatherInfo';
-import Country from './Country';
+import City from './City';
 
 const Banner = () => (
-    <div>
+    <div className={style.banner}>
         <WeatherInfo />
-        <Country country="France"/>
+        <City city="Paris"/>
     </div>
 );
 
