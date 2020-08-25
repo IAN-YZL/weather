@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Banner.module.css';
+import style from './Banner.module.scss';
 
 import Temp from './Temp';
 import OtherInfo from './OtherInfo';
