@@ -23,9 +23,9 @@ console.log(WEATHER[vara]);
 const FutureSet = (props) => (
     <div>
         {console.log(WEATHER[props.weather])}
-        <p>{DAY[props.children]}</p>
         <Temp temp={props.temp}></Temp>
         <img src={`http://openweathermap.org/img/wn/${WEATHER[props.weather]}@2x.png`} alt="weather"/>
+        <p>{DAY[props.children]}</p>
     </div>
 );
 
