@@ -3,15 +3,52 @@ import style from './Banner.module.scss';
 
 import Temp from './Temp';
 import OtherInfo from './OtherInfo';
+const getCurrentWeather = require('../../api/model/getCurrent');
 
-const WeatherInfo = () =>(
-    <div className={style.weatherInfo}>
-        <Temp temp="12">Cloudy</Temp>
-        <div className={style.infoSet}>
-            <OtherInfo value="6.4%">Humidity</OtherInfo>
-            <OtherInfo value="12 K/M">Wind</OtherInfo>
-        </div>
-    </div>
-);
+class WeatherInfo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+        };
+
+        this.loadData = this.loadData.bind(this);
+    }
+
+    loadData () {
+        getCurrentWeather('current').then((data) => {
+            this.setState({
+                data,
+                loading: false,
+            });
+            console.log(this.state.data);
+        });
+    }
+
+    componentDidMount() {
+        this.loadData();
+    }
+
+    render() {
+        return (
+            // this.state.loading?(
+            //     <div>Loading</div>
+            // ):
+            <div className={style.weatherInfo}>
+                {this.state.loading?(<div>Loading</div>):
+                    (
+                        <div>
+                            <Temp temp={Math.round(this.state.data.temp)}>{this.state.data.weather}</Temp>
+                            <div className={style.infoSet}>
+                                <OtherInfo value={this.state.data.humidity + " %"}>Humidity</OtherInfo>
+                                <OtherInfo value={this.state.data.wind + " KM/h"}>Wind</OtherInfo>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+        )
+    }
+}
 
 export default WeatherInfo;
