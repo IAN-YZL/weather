@@ -4,7 +4,6 @@ const weatherApi = axios.create({
 })
 
 function getCurrentWeather() {
-    console.log(process.env.REACT_APP_API_KEY);
 
     return weatherApi.get('/weather',{
         params: {

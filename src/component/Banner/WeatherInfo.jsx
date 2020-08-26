@@ -21,7 +21,6 @@ class WeatherInfo extends React.Component {
                 data,
                 loading: false,
             });
-            console.log(this.state.data);
         });
     }
 
@@ -31,9 +30,6 @@ class WeatherInfo extends React.Component {
 
     render() {
         return (
-            // this.state.loading?(
-            //     <div>Loading</div>
-            // ):
             <div className={style.weatherInfo}>
                 {this.state.loading?(<div>Loading</div>):
                     (
