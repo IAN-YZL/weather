@@ -27,7 +27,7 @@ function getForecastWeather() {
             })
         }
         return output;
-    }).then((data) => console.log(data));
+    });
 }
 
 module.exports = getForecastWeather;

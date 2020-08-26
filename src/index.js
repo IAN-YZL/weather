@@ -7,18 +7,6 @@ import * as serviceWorker from './serviceWorker';
 const dotenv = require('dotenv');
 dotenv.config();
 
-const getData = require("./api/model/getCurrent");
-
-
-const handlePromise = async () => {
-  let data = await getData("current");
-  console.log(data);
-}
-
-handlePromise()
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
