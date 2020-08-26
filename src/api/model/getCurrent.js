@@ -3,11 +3,10 @@ const weatherApi = axios.create({
     baseURL: 'http://api.openweathermap.org/data/2.5'
 })
 
-function getCurrentWeather(type) {
-    const url = (type === "current")?"/weather":"/forecast";
+function getCurrentWeather() {
     console.log(process.env.REACT_APP_API_KEY);
 
-    return weatherApi.get(url,{
+    return weatherApi.get('/weather',{
         params: {
             q: "Paris",
             units: "metric",

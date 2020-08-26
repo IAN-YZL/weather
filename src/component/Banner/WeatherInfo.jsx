@@ -16,7 +16,7 @@ class WeatherInfo extends React.Component {
     }
 
     loadData () {
-        getCurrentWeather('current').then((data) => {
+        getCurrentWeather().then((data) => {
             this.setState({
                 data,
                 loading: false,
