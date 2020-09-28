@@ -9,7 +9,9 @@ function getCurrentWeather() {
         params: {
             q: "Paris",
             units: "metric",
-            APPID: process.env.REACT_APP_API_KEY
+            APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
+
+
         }
     })
     .then(res => {

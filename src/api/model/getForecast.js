@@ -8,7 +8,7 @@ function getForecastWeather() {
         params: {
             q: "Paris",
             units: "metric",
-            APPID: process.env.REACT_APP_API_KEY,
+            APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
         }
     }).then((res) => {
         // console.log(res.data.list[30].dt_txt.slice(0, 10));
