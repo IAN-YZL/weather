@@ -43,7 +43,7 @@ class Future extends React.Component {
                 <div className={style.future}>
                     {this.state.data.map((item) => {
                         return(
-                            <FutureSet temp={Math.round(item.temp)} weather={item.weather}>{item.day}</FutureSet>
+                            <FutureSet key={item.day} temp={Math.round(item.temp)} weather={item.weather}>{item.day}</FutureSet>
                         )
                     })}
 
