@@ -4,14 +4,11 @@ const weatherApi = axios.create({
 })
 
 function getCurrentWeather() {
-
     return weatherApi.get('/weather',{
         params: {
             q: "Paris",
             units: "metric",
             APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
-
-
         }
     })
     .then(res => {
