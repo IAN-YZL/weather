@@ -11,8 +11,7 @@ function getForecastWeather() {
             APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
         }
     }).then((res) => {
-        // console.log(res.data.list[30].dt_txt.slice(0, 10));
-        // console.log(new Date("2020-08-29").getDay());
+
         const output = []
         for (let i = 0; i < 40; i ++) {
             if ((i + 8) % 8 !== 0) {

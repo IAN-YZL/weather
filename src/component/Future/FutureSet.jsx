@@ -12,14 +12,6 @@ const WEATHER = {
     Clouds: "02d",
 }
 
-const vara = "THUNDERSTORM";
-
-console.log(WEATHER[vara]);
-    // {key: "THUNDERSTORM", value: },
-    // {key: "DRIZZLE", value: "09d"},
-    // {key: "RAIN", value: "10d"},
-    // {key: "SNOW", value: "13d"},  
-
 const FutureSet = (props) => (
     <div>
         {console.log(WEATHER[props.weather])}
