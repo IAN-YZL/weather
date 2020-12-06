@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import style from './Banner.module.scss';
-
 import Temp from './Temp';
 import OtherInfo from './OtherInfo';
 import { CityContext } from '../../contexts/CityContext';
@@ -20,8 +19,6 @@ const WeatherInfo = () => {
             });
         }
     })
-
-    console.log(city);
     
     return(
         <div className={style.weatherInfo}>
