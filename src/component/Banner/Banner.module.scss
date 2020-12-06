@@ -1,7 +1,7 @@
 .banner {
     color: white;
     display: flex;
-    background-image: url('./assets/Paris.jpg');
+    // background-image: url('./assets/Paris.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 30px;
@@ -29,6 +29,7 @@
 .city p {
     margin: 0;
     padding-top: 10px;
+    text-transform: capitalize;
 }
 .underline {
     height: 3px;
