@@ -28,7 +28,7 @@ const Future = () => {
             });
         }
     });
-    
+
     return (
         !isFutureLoaded ? (<div>Loading</div>) : (
             <div className={style.future}>
