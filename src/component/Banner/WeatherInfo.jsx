@@ -1,50 +1,46 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import style from './Banner.module.scss';
 
 import Temp from './Temp';
 import OtherInfo from './OtherInfo';
+import { CityContext } from '../../contexts/CityContext';
 const getCurrentWeather = require('../../api/model/getCurrent');
 
-class WeatherInfo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-        };
-
-        this.loadData = this.loadData.bind(this);
-    }
-
-    loadData () {
-        getCurrentWeather().then((data) => {
-            this.setState({
-                data,
-                loading: false,
+const WeatherInfo = () => {
+    const [city, setCity] = useContext(CityContext);
+    const { data, isLoaded, cityName } = city;
+    useEffect(() => {
+        if (!isLoaded) {
+            getCurrentWeather(cityName).then(res => {
+                setCity({
+                    ...city,
+                    data: res,
+                    isLoaded: true,
+                })
             });
-        });
-    }
+        }
+    })
 
-    componentDidMount() {
-        this.loadData();
-    }
-
-    render() {
-        return (
-            <div className={style.weatherInfo}>
-                {this.state.loading?(<div>Loading</div>):
+    console.log(city);
+    
+    return(
+        <div className={style.weatherInfo}>
+            {!isLoaded?(<div>Loading</div>):
+                (data ?
                     (
                         <div>
-                            <Temp temp={Math.round(this.state.data.temp)}>{this.state.data.weather}</Temp>
+                            <Temp temp={Math.round(data.temp)}>{data.weather}</Temp>
                             <div className={style.infoSet}>
-                                <OtherInfo value={this.state.data.humidity + " %"}>Humidity</OtherInfo>
-                                <OtherInfo value={this.state.data.wind + " KM/h"}>Wind</OtherInfo>
+                                <OtherInfo value={data.humidity + " %"}>Humidity</OtherInfo>
+                                <OtherInfo value={data.wind + " KM/h"}>Wind</OtherInfo>
                             </div>
                         </div>
-                    )
-                }
-            </div>
-        )
-    }
+                    ) :
+                    <div className={style.warning}>The city name is incorrect, please input a valid Australia city name</div>
+                )
+            }
+        </div>
+    )
 }
 
 export default WeatherInfo;

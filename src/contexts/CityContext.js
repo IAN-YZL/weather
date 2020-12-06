@@ -4,8 +4,11 @@ export const CityContext = createContext();
 
 export const CityProvider = props => {
 	const [city, setCity] = useState({
-		data: '',
+		data: {},
 		isLoaded: false,
+		cityName: 'Sydney',
+		isFutureLoaded: false,
+		futureData: [],
 	});
 
 	return(

@@ -16,8 +16,10 @@ const SearchBar = () => {
 	const handleClick = () => {
 		if (checkCityName(input)) {
 			setCity({
-				data: input,
+				...city,
+				cityName: input,
 				isLoaded: false,
+				isFutureLoaded: false,
 			});
 		}
 	}

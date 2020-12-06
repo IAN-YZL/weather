@@ -3,10 +3,10 @@ const weatherApi = axios.create({
     baseURL: 'http://api.openweathermap.org/data/2.5'
 })
 
-function getCurrentWeather() {
+function getCurrentWeather(city='Sydney') {
     return weatherApi.get('/weather',{
         params: {
-            q: "Paris",
+            q: `${city},AU`,
             units: "metric",
             APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
         }

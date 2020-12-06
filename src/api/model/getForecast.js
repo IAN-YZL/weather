@@ -3,15 +3,14 @@ const weatherApi = axios.create({
     baseURL: 'http://api.openweathermap.org/data/2.5'
 })
 
-function getForecastWeather() {
+function getForecastWeather(city='Sydney') {
     return weatherApi.get('/forecast', {
         params: {
-            q: "Paris",
+            q: `${city},AU`,
             units: "metric",
             APPID: "1d7afce7ea097626fb8d59ecc5b971c0",
         }
     }).then((res) => {
-
         const output = []
         for (let i = 0; i < 40; i ++) {
             if ((i + 8) % 8 !== 0) {
